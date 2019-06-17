@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit {
     window.alert("The product gas been shared!")
   }
 
-  onNotify() {
-    window.alert("You will be notitfied when the product goes on sale");
+  onNotify(x: string) {
+    window.alert(x + " | You will be notitfied when the product goes on sale");
   }
 }

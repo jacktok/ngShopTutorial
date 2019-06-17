@@ -1,4 +1,6 @@
-export const products = [
+import { Product } from './product';
+
+export const products: Product[] = [
     {
       name: 'Phone XL',
       price: 799,

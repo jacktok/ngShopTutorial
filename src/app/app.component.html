@@ -1,5 +1,28 @@
 <app-top-bar></app-top-bar>
 
+
+<div *ngIf="afAuth.user | async as user; else showLogin">
+    <h1>Hello {{ user.displayName }}!</h1>
+    <button (click)="logout()">Logout</button>
+</div>
+<ng-template #showLogin>
+    <p>Please login.</p>
+    <button style="background-color: red" (click)="login()">Login with Google</button>
+    <button (click)="loginFacebook()">Login with facebook</button>
+</ng-template>
+
+<ul>
+    <li class="text" *ngFor="let item of items">
+        <div [ngSwitch]="item.name">
+            <div *ngSwitchCase="null">
+                {{item}}
+            </div>
+            <div *ngSwitchDefault>
+                <b>{{item.id}}</b> <span>{{item.name}}</span>
+            </div>
+        </div>
+    </li>
+</ul>
 <div class="contrainer">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>

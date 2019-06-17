@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http'
-import { from } from 'rxjs';
+import { from, Observable } from 'rxjs';
+import { Product } from './product';
+import { Shipping } from './shipping';
+import { EventEmitter } from 'events';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +25,8 @@ export class CartService {
     return this.items;
   }
 
-  getShippingPrices() {
-    return this.http.get('/assets/shipping.json')
+  getShippingPrices(): Observable<Shipping[]> {
+    const xx =  this.http.get<Shipping[]>("/assets/shipping.json")
+    return xx;
   }
 }

@@ -1,6 +1,8 @@
 <a [routerLink]="['/']">
   <h1>My Strore</h1>
 </a>
-
+<div *ngFor="let i of cartService.items">
+  <h1>{{ i }}</h1>
+</div>
 
 <a [routerLink]="['/cart']" class="button fancy-button"><i class="material-icons">shopping_cart</i>Checkout</a>
